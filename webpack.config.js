@@ -93,12 +93,24 @@ module.exports = {
         use: ["html-loader"],
       },
       {
+        test: /\.(ejs)$/,
+        use: [
+          {
+            loader: "ejs-easy-loader",
+            options: {
+              esModule: false,
+            },
+          },
+        ],
+      },
+      {
         test: /\.(svg|png|jpg|gif)$/,
         use: {
           loader: "file-loader",
           options: {
             name: "[name].[ext]",
             outputPath: "assets/img",
+            esModule: false,
           },
         },
       },
